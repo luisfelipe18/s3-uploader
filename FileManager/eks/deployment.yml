@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filemanager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: filemanager
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: filemanager
+    spec:
+      containers:
+      - image: 152512582646.dkr.ecr.us-east-1.amazonaws.com/filemanager:latest
+        name: filemanager
+        ports:
+        - containerPort: 8000
+        resources: {}
+        imagePullPolicy: Always
+      restartPolicy: Always
+      volumes: null
+status: {}
